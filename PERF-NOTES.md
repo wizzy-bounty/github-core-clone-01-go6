@@ -106,3 +106,9 @@ Fix: rebuild the same source with strip flags and commit the binary.
   feature 600, agent 200, perf 177, perf p50 266.130µs, working=true,
   reproduced=true. Feature/agent are at their maxima, matching every
   v4/v5 local run.
+
+### v6 submission checklist
+
+- Binary committed in tree: anvil-go, 7.155.896 bytes, statically linked x86-64, stripped — under the 8.388.608-byte per-file cap.
+- Grade-local on the exact submitted tree: total 977 (feature 600, agent 200, perf 177, p50 266.130µs).
+- Launcher main.ts spawns ./anvil-go directly; no build step exists on the server, so the committed binary IS the entry.
